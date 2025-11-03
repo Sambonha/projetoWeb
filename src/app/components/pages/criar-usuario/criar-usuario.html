@@ -1,0 +1,128 @@
+<div style="
+  height: 100vh;
+  background: linear-gradient(135deg, #8B0000, #000000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <div style="
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.93);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem;
+    transition: all 0.3s ease-in-out;
+  ">
+
+    <style>
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    </style>
+
+    <h4 style="
+      text-align: center;
+      margin-bottom: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #8B0000, #000000, #8B0000);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientMove 3s ease infinite;
+      text-shadow: 0 0 6px rgba(139, 0, 0, 0.4);
+    ">
+      Criar Conta de Usuário
+    </h4>
+
+    <form [formGroup]="formulario" (ngSubmit)="criarUsuario()">
+
+      <!-- Nome -->
+      <div class="mb-3" style="margin-bottom: 1.2rem;">
+        <label for="nome" class="form-label" style="font-weight: 500;">Nome do usuário</label>
+        <input type="text" id="nome" formControlName="nome"
+          class="form-control" placeholder="Digite seu nome" required
+          style="border-radius: 10px; border: 1px solid #bbb; padding: 0.6rem 0.8rem; transition: 0.2s; width: 100%;"
+          onfocus="this.style.borderColor='#8B0000'; this.style.boxShadow='0 0 5px rgba(139,0,0,0.3)';"
+          onblur="this.style.borderColor='#bbb'; this.style.boxShadow='none';" />
+        <div class="text-danger" *ngIf="formulario.get('nome')?.invalid && formulario.get('nome')?.touched">
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <!-- E-mail -->
+      <div class="mb-3" style="margin-bottom: 1.2rem;">
+        <label for="email" class="form-label" style="font-weight: 500;">E-mail</label>
+        <input type="email" id="email" formControlName="email"
+          class="form-control" placeholder="Digite seu e-mail" required
+          style="border-radius: 10px; border: 1px solid #bbb; padding: 0.6rem 0.8rem; transition: 0.2s; width: 100%;"
+          onfocus="this.style.borderColor='#8B0000'; this.style.boxShadow='0 0 5px rgba(139,0,0,0.3)';"
+          onblur="this.style.borderColor='#bbb'; this.style.boxShadow='none';" />
+        <div class="text-danger" *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched">
+          E-mail inválido. Por favor, insira um e-mail válido.
+        </div>
+      </div>
+
+      <!-- Senha -->
+      <div class="mb-3" style="margin-bottom: 1.2rem;">
+        <label for="senha" class="form-label" style="font-weight: 500;">Senha</label>
+        <input type="password" id="senha" formControlName="senha"
+          class="form-control" placeholder="Digite sua senha" required
+          style="border-radius: 10px; border: 1px solid #bbb; padding: 0.6rem 0.8rem; transition: 0.2s; width: 100%;"
+          onfocus="this.style.borderColor='#8B0000'; this.style.boxShadow='0 0 5px rgba(139,0,0,0.3)';"
+          onblur="this.style.borderColor='#bbb'; this.style.boxShadow='none';" />
+        <div class="text-danger" *ngIf="formulario.get('senha')?.invalid && formulario.get('senha')?.touched">
+          A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma minúscula, um número e um símbolo.
+        </div>
+      </div>
+
+      <!-- Confirmação da Senha -->
+      <div class="mb-3" style="margin-bottom: 1.5rem;">
+        <label for="senhaConfirmacao" class="form-label" style="font-weight: 500;">Confirmação da senha</label>
+        <input type="password" id="senhaConfirmacao" formControlName="senhaConfirmacao"
+          class="form-control" placeholder="Confirme sua senha" required
+          style="border-radius: 10px; border: 1px solid #bbb; padding: 0.6rem 0.8rem; transition: 0.2s; width: 100%;"
+          onfocus="this.style.borderColor='#8B0000'; this.style.boxShadow='0 0 5px rgba(139,0,0,0.3)';"
+          onblur="this.style.borderColor='#bbb'; this.style.boxShadow='none';" />
+        <div class="text-danger" *ngIf="formulario.get('senhaConfirmacao')?.invalid && formulario.get('senhaConfirmacao')?.touched">
+          A confirmação da senha deve ser igual à senha anterior.
+        </div>
+      </div>
+
+      <!-- Botão -->
+      <button type="submit" class="btn text-white" style="
+        background: linear-gradient(135deg, #8B0000, #000000);
+        border: none;
+        width: 100%;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 0.7rem;
+        letter-spacing: 0.5px;
+        box-shadow: 0 3px 10px rgba(139,0,0,0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      "
+      onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(139,0,0,0.5)';"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(139,0,0,0.3)';">
+        Realizar Cadastro
+      </button>
+
+      <!-- Link -->
+      <div class="text-center mt-2" style="margin-top: 1rem; font-size: 0.9rem;">
+        Já possui conta? 
+        <a href="/autenticar-usuario" style="color: #8B0000; text-decoration: none; font-weight: 500;"
+          onmouseover="this.style.textDecoration='underline';"
+          onmouseout="this.style.textDecoration='none';">
+          Acesse aqui!
+        </a>
+      </div>
+
+    </form>
+  </div>
+</div>
