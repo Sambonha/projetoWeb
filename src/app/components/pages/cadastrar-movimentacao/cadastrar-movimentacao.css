@@ -1,0 +1,99 @@
+/* Container Principal */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8B0000, #000000);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Animação de gradiente */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+.header-container {
+  width: 100%;
+  text-align: center;
+}
+
+.titulo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #8B0000, #000000, #8B0000);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientMove 3s ease infinite;
+}
+
+.descricao {
+  font-size: 1rem;
+  color: #eee;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Card do Formulário */
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  color: #000;
+}
+
+.form-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 2px solid #8B0000;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Botão */
+.btn-submit {
+  background-color: #8B0000;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-submit:hover {
+  background-color: #FF0000;
+}
+
+/* Alerta */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+}

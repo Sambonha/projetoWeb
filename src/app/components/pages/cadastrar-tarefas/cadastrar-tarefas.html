@@ -1,119 +1,22 @@
-<app-menu/>
-<div>
-  <div style="
-  min-height: 100vh;
-  background: linear-gradient(135deg, #8B0000, #000000);
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-">
+<app-menu />
 
-  <style>
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .form-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      width: 100%;
-      max-width: 500px;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      color: #000;
-    }
-
-    .form-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      border: 2px solid #8B0000;
-    }
-
-    h4 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, #8B0000, #000000, #8B0000);
-      background-size: 200% auto;
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      animation: gradientMove 3s ease infinite, pulseTitle 2s infinite;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #eee;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .form-control, .form-select {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .btn-submit {
-      background-color: #8B0000;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-submit:disabled {
-      background-color: #555;
-      cursor: not-allowed;
-    }
-
-    .btn-submit:hover:not(:disabled) {
-      background-color: #FF0000;
-    }
-
-    .alert-success {
-      background-color: #d4edda;
-      color: #155724;
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #ccc;
-      margin: 1rem 0 1.5rem 0;
-    }
-  </style>
+<div class="page-container">
 
   <!-- Cabeçalho -->
-  <div style="width: 100%; text-align: center;">
-    <h4>Formulário de cadastro de tarefas</h4>
-    <p>Preencha os campos para incluir uma tarefa em sua agenda.</p>
+  <div class="header-container">
+    <h4 class="titulo">Formulário de cadastro de tarefas</h4>
+    <p class="descricao">Preencha os campos para incluir uma tarefa em sua agenda.</p>
   </div>
 
   <!-- Formulário -->
   <div class="form-card">
-    <div *ngIf="mensagem()" class="alert alert-success">
-      <strong>{{mensagem()}}</strong>
+
+    <div *ngIf="mensagem()" class="alert-success">
+      <strong>{{ mensagem() }}</strong>
     </div>
 
     <form [formGroup]="formulario" (ngSubmit)="cadastrarTarefa()">
+
       <div class="mb-3">
         <label>Nome da tarefa:</label>
         <input type="text" class="form-control" formControlName="nomeTarefa" />
@@ -138,21 +41,23 @@
         <label>Categoria da tarefa:</label>
         <select class="form-select" formControlName="idCategoria">
           <option value="">Escolha uma opção</option>
-          <option *ngFor="let c of categorias()" value="{{c.id}}">
-            {{c.nome}}
+          <option *ngFor="let c of categorias()" [value]="c.id">
+            {{ c.nome }}
           </option>
         </select>
       </div>
 
       <div class="mb-3">
-        <input type="submit" class="btn-submit" value="REALIZAR CADASTRO" [disabled]="formulario.invalid" />
+        <input
+          type="submit"
+          class="btn-submit"
+          value="REALIZAR CADASTRO"
+          [disabled]="formulario.invalid"
+        />
       </div>
+
     </form>
+
   </div>
 
 </div>
-
-
-
-</div>
-

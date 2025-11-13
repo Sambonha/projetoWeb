@@ -1,39 +1,19 @@
 <app-menu></app-menu>
 
-<div style="min-height:100vh; background: linear-gradient(135deg, #8B0000, #000); padding:2rem; display:flex; flex-direction:column; align-items:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#fff;">
+<div class="container-mov">
 
-  <div style="width:100%; text-align:center; margin-bottom:2rem;">
-    <h4 style="font-weight:700; font-size:1.8rem; background: linear-gradient(90deg,#8B0000,#000,#8B0000); background-clip:text; -webkit-background-clip:text; color:transparent;">
+  <div class="header-mov">
+    <h4 class="titulo-mov">
       Consulta de Movimentações
     </h4>
     <p>Listagem das movimentações financeiras</p>
-    <hr style="border-top:1px solid #ccc;">
+    <hr>
   </div>
 
-  <style>
-    table tr:hover {
-      background-color: rgba(139, 0, 0, 0.08);
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      transform: scale(1.05);
-      transition: transform 0.2s ease, background-color 0.2s ease;
-      filter: brightness(1.1);
-    }
-    .badge {
-      padding:0.2rem 0.5rem; 
-      border-radius:5px; 
-      font-size:0.85rem;
-      font-weight:bold;
-    }
-    .badge-receita { background:#28a745; color:#fff; }
-    .badge-despesa { background:#ffc107; color:#000; }
-  </style>
-
-  <table style="width:100%; max-width:900px; border-collapse:collapse; background: rgba(255,255,255,0.95); color:#000; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+  <table class="tabela-mov">
     <thead>
-      <tr style="background-color: rgba(139,0,0,0.9); color:#fff;">
-        <th style="padding:10px;">Nome da movimentação</th>
+      <tr>
+        <th>Nome da movimentação</th>
         <th>Data</th>
         <th>Valor</th>
         <th>Tipo</th>
@@ -41,25 +21,30 @@
         <th>Ações</th>
       </tr>
     </thead>
+
     <tbody>
       <tr *ngFor="let t of movimentacoes()">
-        <td style="padding:8px;">{{ t.nome | uppercase }}</td>
+        <td>{{ t.nome | uppercase }}</td>
         <td>{{ t.data | date:'dd/MM/yyyy' }}</td>
         <td>{{ t.valor | currency: 'BRL' }}</td>
+
         <td>
           <span *ngIf="t.tipo == 'Receita'" class="badge badge-receita">RECEITA</span>
           <span *ngIf="t.tipo == 'Despesa'" class="badge badge-despesa">DESPESA</span>
         </td>
+
         <td>{{ t.categoria.nome }}</td>
+
         <td>
-          <button [routerLink]="['/editar-movimentacao', t.id]" style="background:#8B0000; color:#fff; border:none; padding:0.3rem 0.6rem; border-radius:5px; cursor:pointer; margin-right:0.3rem;">Editar</button>
-          <button (click)="excluirMovimentacao(t.id)" style="background:#b71c1c; color:#fff; border:none; padding:0.3rem 0.6rem; border-radius:5px; cursor:pointer;">Excluir</button>
+          <button [routerLink]="['/editar-movimentacao', t.id]" class="btn-editar">Editar</button>
+          <button (click)="excluirMovimentacao(t.id)" class="btn-excluir">Excluir</button>
         </td>
       </tr>
     </tbody>
+
     <tfoot>
       <tr>
-        <td colspan="6" style="font-weight:bold; background-color: rgba(139,0,0,0.1); padding:8px;">
+        <td colspan="6" class="qtde">
           Quantidade de movimentações: {{ movimentacoes().length }}
         </td>
       </tr>

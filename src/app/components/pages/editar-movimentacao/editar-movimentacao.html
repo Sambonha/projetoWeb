@@ -1,9 +1,9 @@
-<app-menu />
+<app-menu></app-menu>
 
-<div class="container mt-3">
-    <h4>Formulário de edição de movimentação</h4>
-    <p>Preencha os campos para modificar uma movimentação financeira.</p>
-    <hr />
+<div class="container mt-3 edit-container">
+    <h4 class="edit-title">Formulário de edição de movimentação</h4>
+    <p class="edit-subtitle">Preencha os campos para modificar uma movimentação financeira.</p>
+    <hr class="edit-divider" />
 
     <form [formGroup]="formulario" (ngSubmit)="atualizarMovimentacao()">
 
@@ -36,15 +36,18 @@
             <select class="form-select" formControlName="categoriaId">
                 <option value="">Escolha uma opção</option>
                 <option *ngFor="let c of categorias()" [value]="c.id">
-                    {{ c.nome | uppercase}}
+                    {{ c.nome | uppercase }}
                 </option>
             </select>
         </div>
 
         <div class="mb-3">
-            <input type="submit" class="btn btn-primary" 
+            <input 
+                type="submit" 
+                class="btn btn-primary edit-submit-btn"
                 [disabled]="formulario.invalid"
-                value="Salvar alterações" />
+                value="Salvar alterações"
+            />
         </div>
 
     </form>
