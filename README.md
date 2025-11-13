@@ -1,59 +1,73 @@
-# ProjetoWeb
+🖥️ Front-End — Agenda de Tarefas
+📖 Descrição do Projeto
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Aplicação desenvolvida em Angular
+ para consumir a API de gerenciamento de tarefas e categorias, permitindo criar, editar, listar e excluir registros de forma prática e organizada.
 
-## Development server
+Tecnologias e recursos utilizados:
 
-To start a local development server, run:
+Angular 17+
+ — Framework SPA moderno
 
-```bash
-ng serve
-```
+Componentização e organização modular
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+RxJS
+ para serviços assíncronos
 
-## Code scaffolding
+Formulários Reativos (Reactive Forms)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Bootstrap para estilização e responsividade
 
-```bash
-ng generate component component-name
-```
+Integração completa com a API REST desenvolvida em Spring Boot
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+BACK END DO PROJETO ➝ (https://github.com/Sambonha/apiAgenda
+)
 
-```bash
-ng generate --help
-```
+🏗️ Organização do Projeto
 
-## Building
+O projeto segue uma estrutura simples e funcional, dividido em:
 
-To build the project run:
+Components → Telas e seções do sistema (tarefas, categorias, menu, formulários etc.)
 
-```bash
-ng build
-```
+Services → Comunicação com a API de tarefas e categorias
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Models → Interfaces de tipagem para objetos (Tarefa, Categoria, etc.)
 
-## Running unit tests
+Pages → Telas principais (listar, criar, editar, excluir)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Assets → Ícones, imagens, fontes e recursos gerais
 
-```bash
-ng test
-```
+Styles → Estilos globais e variáveis
 
-## Running end-to-end tests
+🧩 Teoria: Angular
 
-For end-to-end (e2e) testing, run:
+O Angular é um framework front-end mantido pela Google e focado na criação de aplicações SPA (Single Page Applications).
+Principais conceitos usados no projeto:
 
-```bash
-ng e2e
-```
+Componentes → Estrutura base da aplicação
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Módulos → Agrupamento de funcionalidades
 
-## Additional Resources
+Services → Pontos centrais para lógica e integração com a API
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Injeção de Dependência (DI) → Facilita organização e manutenção
+
+Data Binding → Comunicação entre template e lógica
+
+Rotas → Navegação entre páginas sem recarregar a aplicação
+
+No projeto, essas ferramentas foram aplicadas para criar um front-end intuitivo, organizado e fácil de escalar.
+
+🌐 Comunicação com a API
+
+O consumo da API é feito via HttpClient, respeitando o padrão REST:
+
+GET → listar tarefas/categorias
+
+POST → criar
+
+PUT → editar
+
+DELETE → excluir
+
+Os serviços centralizam todas as chamadas para manter o código limpo e reutilizável.
