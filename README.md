@@ -20,7 +20,7 @@ Bootstrap para estilização e responsividade
 
 Integração completa com a API REST desenvolvida em Spring Boot
 
-BACK END DO PROJETO ➝ (https://github.com/Sambonha/apiAgenda
+BACK END DO PROJETO ➝ (https://github.com/Sambonha/apiAgendaTarefas
 )
 
 🏗️ Organização do Projeto
